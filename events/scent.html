@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>The Art of Scent · XENNI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Serif+SC:wght@400;500&display=swap">
+<style>
+:root{--wine:#39161e;--wine-2:#4d2129;--paper:#ede4d6;--paper-2:#e4d9c7;--card:#f5efe5;--ink:#2e1c1a;--line:#6b3a3c;--soft:#7d6559;--rule:#cdbba6;--cream:#efe4d4;--cream-soft:#c7ad9c;
+--disp:"Cormorant Garamond","Noto Serif SC",Georgia,serif;--body:"Noto Serif SC","Songti SC","STSong",serif;color-scheme:light}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper)}
+body{color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.85;-webkit-font-smoothing:antialiased;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+img{max-width:100%;display:block}
+a{color:inherit}
+a:focus-visible{outline:2px solid var(--cream-soft);outline-offset:4px}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+.narrow{max-width:760px}
+.lbl{font-family:var(--disp);font-size:13px;letter-spacing:.4em;text-transform:uppercase}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--wine)}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--wine);color:var(--cream);border-bottom:1px solid rgba(239,228,212,.12)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;padding-block:12px}
+.back{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-size:14px;letter-spacing:.18em;padding:8px 16px 8px 12px;border:1px solid rgba(239,228,212,.4);border-radius:999px;transition:background .2s}
+.back:hover{background:rgba(239,228,212,.1)}
+.back span{font-size:18px;line-height:1}
+.brand{font-family:var(--disp);font-size:18px;letter-spacing:.38em}
+.brand small{font-family:var(--body);font-size:12px;letter-spacing:.3em;color:var(--cream-soft);margin-left:.3em}
+.hero{background:var(--wine);color:var(--cream)}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;padding-block:56px 72px}
+.hero .lbl{color:var(--cream-soft)}
+.hero .date{margin-top:22px;font-family:var(--disp);font-size:18px;letter-spacing:.32em;color:#e3c3b4}
+.hero h1{margin:10px 0 0;font-weight:500;font-size:clamp(40px,6vw,64px);letter-spacing:.28em;line-height:1.2}
+.hero .en{font-family:var(--disp);font-style:italic;font-size:clamp(24px,3vw,32px);color:#e3c3b4;margin-top:6px}
+.hero p{margin:24px 0 0;font-family:var(--disp);font-size:19px;line-height:1.6;color:#dccbbd;max-width:30em}
+.hero p.zh{font-family:var(--body);font-size:15px;color:var(--cream-soft);margin-top:12px}
+.hero .pic img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.hero .burner{width:26px;margin-bottom:18px}
+.cta{display:inline-block;margin-top:30px;text-decoration:none;font-family:var(--disp);font-size:15px;letter-spacing:.24em;text-transform:uppercase;padding-bottom:6px;border-bottom:1px solid currentColor}
+.sec{padding-block:88px}
+.sec + .sec{padding-top:0}
+.head{text-align:center;margin-bottom:48px}
+.head .lbl{color:var(--soft)}
+.head h2{margin:10px 0 0;font-family:var(--disp);font-weight:400;font-size:clamp(30px,4vw,42px);color:var(--line);line-height:1.15}
+.head h2 span{display:block;font-family:var(--body);font-size:15px;letter-spacing:.5em;color:var(--ink);margin-top:10px}
+.prose p{margin:0 0 16px}
+.prose .en{font-family:var(--disp);font-size:19px;line-height:1.6}
+.prose .soft{color:var(--soft);font-size:15px}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.three > div{min-width:0}
+.three .n{font-family:var(--disp);font-size:13px;letter-spacing:.3em;color:var(--soft)}
+.three h3{margin:6px 0 6px;font-weight:500;font-size:20px;letter-spacing:.2em;color:var(--line)}
+.three p{margin:0;font-size:14.5px;color:var(--soft)}
+.three img{width:100%;aspect-ratio:3/2;object-fit:cover;margin-bottom:16px}
+.band{background:var(--paper-2)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.split > div{min-width:0}
+.split img{width:100%;height:auto}
+.quad{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px}
+.quad img{width:100%;aspect-ratio:1;object-fit:cover}
+.tl{border-top:1px solid var(--rule)}
+.tl .r{display:grid;grid-template-columns:110px 1fr;gap:24px;padding:20px 0;border-bottom:1px solid var(--rule)}
+.tl .k{font-family:var(--disp);font-size:18px;color:var(--line);letter-spacing:.06em}
+.tl h4{margin:0;font-weight:500;font-size:16px;letter-spacing:.12em}
+.tl p{margin:4px 0 0;font-size:14.5px;color:var(--soft)}
+.people{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:28px}
+.person{display:grid;grid-template-columns:72px 1fr;gap:16px;align-items:start}
+.person img{width:72px;height:90px;object-fit:cover}
+.person b{display:block;font-weight:500;font-size:16px;letter-spacing:.15em}
+.person span{display:block;font-size:13px;color:var(--soft);line-height:1.65}
+.note{margin-top:24px;padding:18px 22px;background:var(--card);font-size:14.5px;color:var(--soft)}
+.note b{color:var(--line);font-weight:500;letter-spacing:.2em;margin-right:10px}
+.six{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:28px}
+.six figure{margin:0}
+.six img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.six figcaption{font-size:12.5px;color:var(--soft);margin-top:6px;line-height:1.5}
+.six figcaption b{display:block;color:var(--ink);font-weight:500;letter-spacing:.1em}
+.wide img{width:100%;height:auto}
+.cap{font-size:12px;color:var(--soft);letter-spacing:.12em;margin-top:8px}
+.stats{display:flex;gap:56px;flex-wrap:wrap;margin-top:24px}
+.stats div{font-size:13px;color:var(--soft);letter-spacing:.1em}
+.stats b{display:block;font-family:var(--disp);font-weight:400;font-size:44px;color:var(--line);line-height:1;letter-spacing:0}
+.refs{font-size:12.5px;color:var(--soft);line-height:1.8;padding-left:1.2em;margin:0}
+.refs li{word-break:break-all}
+.join{background:var(--wine);color:var(--cream);padding-top:88px!important}
+.band{padding-top:88px!important}
+.join .head .lbl{color:var(--cream-soft)}
+.join .head h2{color:var(--cream)}
+.join .head h2 span{color:var(--cream-soft)}
+.qrs{display:grid;grid-template-columns:1fr 1fr;gap:56px;max-width:700px;margin:0 auto}
+.qc{text-align:center;min-width:0}
+.qc .lbl{color:var(--cream-soft);font-size:12px}
+.qc h3{margin:6px 0 0;font-weight:500;font-size:18px;letter-spacing:.2em}
+.qc .g{font-family:var(--disp);font-style:italic;font-size:16px;color:var(--cream-soft)}
+.qc .qr{width:200px;max-width:100%;aspect-ratio:1;margin:20px auto 16px;padding:12px;background:#fbf7f1}
+.qc .qr img{width:100%;height:100%}
+.qc p{margin:0 auto;font-size:13px;color:var(--cream-soft);max-width:26ch;line-height:1.7}
+.qc .cta{margin-top:16px;font-size:13px}
+.join .info{text-align:center;margin:0 auto 48px;max-width:560px;font-size:14px;color:var(--cream-soft)}
+.join .info b{display:block;font-family:var(--disp);font-weight:400;font-size:20px;color:var(--cream);letter-spacing:.1em;margin-bottom:4px}
+footer{background:var(--wine);color:var(--cream-soft);border-top:1px solid rgba(239,228,212,.12)}
+footer .wrap{text-align:center;padding-block:40px 36px;font-size:11px;letter-spacing:.25em}
+footer .m{font-family:var(--disp);font-size:18px;color:var(--cream);letter-spacing:.06em;margin-bottom:12px}
+@media (max-width:820px){
+ .hero .wrap{grid-template-columns:1fr;gap:32px;padding-block:28px 56px}
+ .hero .pic{order:-1}
+ .hero .pic img{aspect-ratio:4/3}
+ .three{grid-template-columns:1fr;gap:36px}
+ .split{grid-template-columns:1fr;gap:28px}
+ .six{grid-template-columns:repeat(3,1fr)}
+ .sec{padding-block:64px}
+}
+@media (max-width:600px){
+ .qrs{grid-template-columns:1fr;gap:56px}
+ .quad{grid-template-columns:repeat(2,1fr)}
+ .tl .r{grid-template-columns:76px 1fr;gap:14px}
+ .brand small{display:none}
+ .stats{gap:32px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+.zh-s{display:block;font-family:var(--body);font-size:14px;color:var(--soft);line-height:1.8;margin-top:6px}
+.prose .en{font-family:var(--disp);font-size:19px;line-height:1.6;margin:0 0 6px}
+.prose .zh{font-size:14px;color:var(--soft);margin:0 0 18px}
+.three h3{letter-spacing:.04em;font-family:var(--disp);font-size:24px;font-weight:500}
+.three h3 small{font-family:var(--body);font-size:14px;letter-spacing:.2em;margin-left:8px;color:var(--ink)}
+.three p.en3{font-family:var(--disp);font-size:17px;color:var(--ink);line-height:1.5;margin:0 0 4px}
+.tl h4{font-family:var(--disp);font-size:20px;letter-spacing:.02em}
+.tl h4 small{font-family:var(--body);font-size:14px;letter-spacing:.15em;margin-left:8px;color:var(--soft);font-weight:400}
+.h3x{margin:0 0 12px;font-family:var(--disp);font-weight:500;font-size:28px;color:var(--line);line-height:1.2}
+.offer2{max-width:520px;margin:-24px auto 44px;border:1px solid rgba(239,228,212,.45);padding:18px 22px;text-align:center}
+.offer2 b{display:block;font-family:var(--disp);font-weight:400;font-size:24px;line-height:1.25;color:var(--cream)}
+.offer2 span{display:block;margin-top:6px;font-size:13px;letter-spacing:.2em;color:var(--cream-soft)}
+
+/* pattern ground */
+body{background:var(--paper) url(../assets/pat_paper.jpg) repeat!important;background-size:240px auto!important}
+.hero,.joinband,.join,footer{background:var(--wine) url(../assets/pat_wine.jpg) repeat!important;background-size:240px auto!important}
+.inter,.band{background:var(--paper-2) url(../assets/pat_paper2.jpg) repeat!important;background-size:240px auto!important}
+
+
+.h3x small{font-family:var(--body);font-size:15px;letter-spacing:.25em;margin-left:10px;color:var(--ink)}
+.person b small{font-family:var(--body);font-weight:400;font-size:13px;letter-spacing:.15em;margin-left:6px;color:var(--soft)}
+.person b{font-family:var(--disp);font-size:18px;letter-spacing:.04em}
+.six figcaption b{font-family:var(--disp);font-size:15px;letter-spacing:.04em}
+.rows{display:grid;gap:64px}
+.rw{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.rw.rev .im{order:2}
+.rw .im img{width:100%;height:auto;max-height:520px;object-fit:cover}
+.rw .tx{min-width:0}
+.rw .n{font-family:var(--disp);font-size:13px;letter-spacing:.3em;color:var(--soft)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pair img{width:100%;aspect-ratio:3/4;object-fit:cover}
+@media (max-width:820px){.rw{grid-template-columns:1fr;gap:20px}.rw.rev .im{order:0}.rows{gap:48px}}
+</style></head><body>
+<header class="bar"><div class="wrap"><a class="back" id="back" href="../"><span>←</span>Back to XENNI</a><span class="brand">XENNI<small>齐间</small></span></div></header>
+
+<section class="hero"><div class="wrap">
+ <div>
+  <img class="burner" src="../assets/burner.png" alt="">
+  <div class="lbl">XENNI Winter Cultural Series · 01</div>
+  <div class="date">DEC 11 · FRIDAY · 2026</div>
+  <h1 style="letter-spacing:.02em;font-family:var(--disp);font-weight:400">The Art of Scent</h1>
+  <div class="en" style="font-family:var(--body);font-style:normal;font-size:22px;letter-spacing:.4em">冬序闻香</div>
+  <p>An intimate exploration of Chinese incense traditions, scent, and ritual, with Lin-school floral art and a guqin performance at the table.</p>
+  <p class="zh">一场以东方香文化为主题的冬日雅集。从香材、香器到闻香体验，并有花道与古琴展示。</p>
+  <a class="cta" href="#join">Reserve Your Place</a>
+ </div>
+ <div class="pic"><img src="../assets/incense.jpg" alt="An incense stick in a lotus holder"></div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+ <div class="head"><div class="lbl">The Gathering</div><h2>Three Ways into Scent<span>这一席</span></h2></div>
+ <div class="rows">
+  <div class="rw"><div class="im"><img src="../assets/s_woods.jpg" alt="Sandalwood, cedar, pine and juniper"></div><div class="tx"><div class="n">I</div><h3 class="h3x">Materials<small>香材</small></h3><p class="en">Where scent comes from, and how to tell one material from another: woods, resins, seeds and petals.</p><p class="zh">认识香的来处，分辨不同香材的气味。</p></div></div>
+  <div class="rw rev"><div class="im"><img src="../assets/s_vessel.jpg" alt="An incense stick on a stone holder with a branch and dried flower"><div class="cap">Photo · 谷物摄影 GUWU Studio</div></div><div class="tx"><div class="n">II</div><h3 class="h3x">Vessels<small>香器</small></h3><p class="en">Censers, holders and tools: their forms, and how they are used.</p><p class="zh">看香炉、香插与香具的形制与用法。</p></div></div>
+  <div class="rw"><div class="im"><img src="../assets/s_flatlay.jpg" alt="Wood, nutmeg, petals and berries laid out"></div><div class="tx"><div class="n">III</div><h3 class="h3x">Smelling<small>闻香</small></h3><p class="en">Sitting with one scent, and letting the afternoon slow down.</p><p class="zh">静下来闻一炉香，在气味与时间之间慢慢感受。</p></div></div>
+ </div>
+</div></section>
+
+<section class="sec band"><div class="wrap">
+ <div class="head"><div class="lbl">Also at the Table</div><h2>Flowers &amp; the Guqin<span>花道与古琴展示</span></h2></div>
+ <div class="split">
+  <div class="prose">
+   <h3 class="h3x">Lin-school Floral Art<small>林派花道</small></h3>
+   <p class="en">A live arrangement for the winter season, in the Lin-school tradition our members studied in Suzhou: how a stem is chosen, cut and placed.</p>
+   <p class="zh">以齐间成员在苏州研习的林派花道，现场为冬日插一器花。</p>
+   <h3 class="h3x" style="margin-top:36px">Guangling-school Guqin<small>广陵琴派古琴</small></h3>
+   <p class="en">A guqin performance between the incense and the conversation, from the Guangling school of Yangzhou.</p>
+   <p class="zh">香事与交谈之间，一曲广陵琴派古琴。</p>
+  </div>
+  <div class="pair"><img src="../assets/y_hualan.jpg" alt="Flower Basket, Li Song"><img src="../assets/y_meihua.jpg" alt="Plum blossoms, detail"></div>
+ </div>
+</div></section>
+
+<section class="sec band"><div class="wrap narrow">
+ <div class="prose" style="text-align:center">
+  <p class="en">This December, step into a world of timeless craftsmanship, delicate fragrances, and meaningful encounters.</p>
+  <p class="en" style="color:var(--soft);font-size:17px">The Art of Scent is the quiet first table of our Winter Series. The second, <a href="velvet.html">Velvet Blooms &amp; Winter Incense</a> on December 24, is about making things together.</p>
+  <p class="zh">「冬序闻香」偏静，是感官与文化的体验；「绒花映冬」偏动，是亲手创作与相识。</p>
+ </div>
+</div></section>
+<section class="sec join" id="join"><div class="wrap">
+<div class="head"><div class="lbl">Reserve Your Place</div><h2>Join to Reserve<span>扫码入群 · 申请入席</span></h2></div>
+<div class="info"><b>DEC 11 · FRIDAY · The Art of Scent</b>Seats are limited. Join a group chat to reserve and receive the details.<span class="zh-s" style="color:var(--cream-soft)">席位有限，加入社群即可报名并获取当日安排。</span></div>
+<div class="offer2"><b>Join now and get your seat at a XENNI gathering.</b><span>现在报名加入社群，即可获得齐间雅集席位</span></div>
+<div class="qrs">
+ <div class="qc"><div class="lbl">WeChat</div><h3>WeChat Group</h3><div class="g">XENNI | Craft in Progress</div><div class="qr"><img src="../assets/qr_wx.png" alt="XENNI WeChat group QR code"></div><p>In WeChat, press and hold the code. Elsewhere, screenshot it and scan from your photos.<br>微信内长按识别入群</p></div>
+ <div class="qc"><div class="lbl">Instagram</div><h3>Instagram Group</h3><div class="g">XENNI | Cultural Circle</div><div class="qr"><img src="../assets/qr_ig.png" alt="XENNI Cultural Circle Instagram group QR code"></div><p>On desktop, scan with your phone.<br>手机直接点击下方按钮</p><a class="cta" href="https://ig.me/j/jIOSurEkKXzqzSJ-/" target="_blank" rel="noopener">Open in Instagram</a></div>
+</div></div></section><footer><div class="wrap"><div class="m">United by Art · Fulfilled through People　齐于艺 成于人</div>© 2026 XENNI 齐间 · 未经授权请勿转载或改编</div></footer>
+<script>document.getElementById('back').addEventListener('click',function(e){if(history.length>1&&document.referrer){e.preventDefault();history.back();}});</script>
+</body></html>

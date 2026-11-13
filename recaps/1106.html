@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>A Sprig, A Thread · XENNI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Serif+SC:wght@400;500&display=swap">
+<style>
+:root{--wine:#39161e;--wine-2:#4d2129;--paper:#ede4d6;--paper-2:#e4d9c7;--card:#f5efe5;--ink:#2e1c1a;--line:#6b3a3c;--soft:#7d6559;--rule:#cdbba6;--cream:#efe4d4;--cream-soft:#c7ad9c;
+--disp:"Cormorant Garamond","Noto Serif SC",Georgia,serif;--body:"Noto Serif SC","Songti SC","STSong",serif;color-scheme:light}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper)}
+body{color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.85;-webkit-font-smoothing:antialiased;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+img{max-width:100%;display:block}
+a{color:inherit}
+a:focus-visible{outline:2px solid var(--cream-soft);outline-offset:4px}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+.narrow{max-width:760px}
+.lbl{font-family:var(--disp);font-size:13px;letter-spacing:.4em;text-transform:uppercase}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--wine)}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--wine);color:var(--cream);border-bottom:1px solid rgba(239,228,212,.12)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;padding-block:12px}
+.back{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-size:14px;letter-spacing:.18em;padding:8px 16px 8px 12px;border:1px solid rgba(239,228,212,.4);border-radius:999px;transition:background .2s}
+.back:hover{background:rgba(239,228,212,.1)}
+.back span{font-size:18px;line-height:1}
+.brand{font-family:var(--disp);font-size:18px;letter-spacing:.38em}
+.brand small{font-family:var(--body);font-size:12px;letter-spacing:.3em;color:var(--cream-soft);margin-left:.3em}
+.hero{background:var(--wine);color:var(--cream)}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;padding-block:56px 72px}
+.hero .lbl{color:var(--cream-soft)}
+.hero .date{margin-top:22px;font-family:var(--disp);font-size:18px;letter-spacing:.32em;color:#e3c3b4}
+.hero h1{margin:10px 0 0;font-weight:500;font-size:clamp(40px,6vw,64px);letter-spacing:.28em;line-height:1.2}
+.hero .en{font-family:var(--disp);font-style:italic;font-size:clamp(24px,3vw,32px);color:#e3c3b4;margin-top:6px}
+.hero p{margin:24px 0 0;font-family:var(--disp);font-size:19px;line-height:1.6;color:#dccbbd;max-width:30em}
+.hero p.zh{font-family:var(--body);font-size:15px;color:var(--cream-soft);margin-top:12px}
+.hero .pic img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.hero .burner{width:26px;margin-bottom:18px}
+.cta{display:inline-block;margin-top:30px;text-decoration:none;font-family:var(--disp);font-size:15px;letter-spacing:.24em;text-transform:uppercase;padding-bottom:6px;border-bottom:1px solid currentColor}
+.sec{padding-block:88px}
+.sec + .sec{padding-top:0}
+.head{text-align:center;margin-bottom:48px}
+.head .lbl{color:var(--soft)}
+.head h2{margin:10px 0 0;font-family:var(--disp);font-weight:400;font-size:clamp(30px,4vw,42px);color:var(--line);line-height:1.15}
+.head h2 span{display:block;font-family:var(--body);font-size:15px;letter-spacing:.5em;color:var(--ink);margin-top:10px}
+.prose p{margin:0 0 16px}
+.prose .en{font-family:var(--disp);font-size:19px;line-height:1.6}
+.prose .soft{color:var(--soft);font-size:15px}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.three > div{min-width:0}
+.three .n{font-family:var(--disp);font-size:13px;letter-spacing:.3em;color:var(--soft)}
+.three h3{margin:6px 0 6px;font-weight:500;font-size:20px;letter-spacing:.2em;color:var(--line)}
+.three p{margin:0;font-size:14.5px;color:var(--soft)}
+.three img{width:100%;aspect-ratio:3/2;object-fit:cover;margin-bottom:16px}
+.band{background:var(--paper-2)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.split > div{min-width:0}
+.split img{width:100%;height:auto}
+.quad{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px}
+.quad img{width:100%;aspect-ratio:1;object-fit:cover}
+.tl{border-top:1px solid var(--rule)}
+.tl .r{display:grid;grid-template-columns:110px 1fr;gap:24px;padding:20px 0;border-bottom:1px solid var(--rule)}
+.tl .k{font-family:var(--disp);font-size:18px;color:var(--line);letter-spacing:.06em}
+.tl h4{margin:0;font-weight:500;font-size:16px;letter-spacing:.12em}
+.tl p{margin:4px 0 0;font-size:14.5px;color:var(--soft)}
+.people{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:28px}
+.person{display:grid;grid-template-columns:72px 1fr;gap:16px;align-items:start}
+.person img{width:72px;height:90px;object-fit:cover}
+.person b{display:block;font-weight:500;font-size:16px;letter-spacing:.15em}
+.person span{display:block;font-size:13px;color:var(--soft);line-height:1.65}
+.note{margin-top:24px;padding:18px 22px;background:var(--card);font-size:14.5px;color:var(--soft)}
+.note b{color:var(--line);font-weight:500;letter-spacing:.2em;margin-right:10px}
+.six{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:28px}
+.six figure{margin:0}
+.six img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.six figcaption{font-size:12.5px;color:var(--soft);margin-top:6px;line-height:1.5}
+.six figcaption b{display:block;color:var(--ink);font-weight:500;letter-spacing:.1em}
+.wide img{width:100%;height:auto}
+.cap{font-size:12px;color:var(--soft);letter-spacing:.12em;margin-top:8px}
+.stats{display:flex;gap:56px;flex-wrap:wrap;margin-top:24px}
+.stats div{font-size:13px;color:var(--soft);letter-spacing:.1em}
+.stats b{display:block;font-family:var(--disp);font-weight:400;font-size:44px;color:var(--line);line-height:1;letter-spacing:0}
+.refs{font-size:12.5px;color:var(--soft);line-height:1.8;padding-left:1.2em;margin:0}
+.refs li{word-break:break-all}
+.join{background:var(--wine);color:var(--cream);padding-top:88px!important}
+.band{padding-top:88px!important}
+.join .head .lbl{color:var(--cream-soft)}
+.join .head h2{color:var(--cream)}
+.join .head h2 span{color:var(--cream-soft)}
+.qrs{display:grid;grid-template-columns:1fr 1fr;gap:56px;max-width:700px;margin:0 auto}
+.qc{text-align:center;min-width:0}
+.qc .lbl{color:var(--cream-soft);font-size:12px}
+.qc h3{margin:6px 0 0;font-weight:500;font-size:18px;letter-spacing:.2em}
+.qc .g{font-family:var(--disp);font-style:italic;font-size:16px;color:var(--cream-soft)}
+.qc .qr{width:200px;max-width:100%;aspect-ratio:1;margin:20px auto 16px;padding:12px;background:#fbf7f1}
+.qc .qr img{width:100%;height:100%}
+.qc p{margin:0 auto;font-size:13px;color:var(--cream-soft);max-width:26ch;line-height:1.7}
+.qc .cta{margin-top:16px;font-size:13px}
+.join .info{text-align:center;margin:0 auto 48px;max-width:560px;font-size:14px;color:var(--cream-soft)}
+.join .info b{display:block;font-family:var(--disp);font-weight:400;font-size:20px;color:var(--cream);letter-spacing:.1em;margin-bottom:4px}
+footer{background:var(--wine);color:var(--cream-soft);border-top:1px solid rgba(239,228,212,.12)}
+footer .wrap{text-align:center;padding-block:40px 36px;font-size:11px;letter-spacing:.25em}
+footer .m{font-family:var(--disp);font-size:18px;color:var(--cream);letter-spacing:.06em;margin-bottom:12px}
+@media (max-width:820px){
+ .hero .wrap{grid-template-columns:1fr;gap:32px;padding-block:28px 56px}
+ .hero .pic{order:-1}
+ .hero .pic img{aspect-ratio:4/3}
+ .three{grid-template-columns:1fr;gap:36px}
+ .split{grid-template-columns:1fr;gap:28px}
+ .six{grid-template-columns:repeat(3,1fr)}
+ .sec{padding-block:64px}
+}
+@media (max-width:600px){
+ .qrs{grid-template-columns:1fr;gap:56px}
+ .quad{grid-template-columns:repeat(2,1fr)}
+ .tl .r{grid-template-columns:76px 1fr;gap:14px}
+ .brand small{display:none}
+ .stats{gap:32px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+.zh-s{display:block;font-family:var(--body);font-size:14px;color:var(--soft);line-height:1.8;margin-top:6px}
+.prose .en{font-family:var(--disp);font-size:19px;line-height:1.6;margin:0 0 6px}
+.prose .zh{font-size:14px;color:var(--soft);margin:0 0 18px}
+.three h3{letter-spacing:.04em;font-family:var(--disp);font-size:24px;font-weight:500}
+.three h3 small{font-family:var(--body);font-size:14px;letter-spacing:.2em;margin-left:8px;color:var(--ink)}
+.three p.en3{font-family:var(--disp);font-size:17px;color:var(--ink);line-height:1.5;margin:0 0 4px}
+.tl h4{font-family:var(--disp);font-size:20px;letter-spacing:.02em}
+.tl h4 small{font-family:var(--body);font-size:14px;letter-spacing:.15em;margin-left:8px;color:var(--soft);font-weight:400}
+.h3x{margin:0 0 12px;font-family:var(--disp);font-weight:500;font-size:28px;color:var(--line);line-height:1.2}
+.offer2{max-width:520px;margin:-24px auto 44px;border:1px solid rgba(239,228,212,.45);padding:18px 22px;text-align:center}
+.offer2 b{display:block;font-family:var(--disp);font-weight:400;font-size:24px;line-height:1.25;color:var(--cream)}
+.offer2 span{display:block;margin-top:6px;font-size:13px;letter-spacing:.2em;color:var(--cream-soft)}
+
+/* pattern ground */
+body{background:var(--paper) url(../assets/pat_paper.jpg) repeat!important;background-size:240px auto!important}
+.hero,.joinband,.join,footer{background:var(--wine) url(../assets/pat_wine.jpg) repeat!important;background-size:240px auto!important}
+.inter,.band{background:var(--paper-2) url(../assets/pat_paper2.jpg) repeat!important;background-size:240px auto!important}
+
+
+.h3x small{font-family:var(--body);font-size:15px;letter-spacing:.25em;margin-left:10px;color:var(--ink)}
+.person b small{font-family:var(--body);font-weight:400;font-size:13px;letter-spacing:.15em;margin-left:6px;color:var(--soft)}
+.person b{font-family:var(--disp);font-size:18px;letter-spacing:.04em}
+.six figcaption b{font-family:var(--disp);font-size:15px;letter-spacing:.04em}
+.rows{display:grid;gap:64px}
+.rw{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.rw.rev .im{order:2}
+.rw .im img{width:100%;height:auto;max-height:520px;object-fit:cover}
+.rw .tx{min-width:0}
+.rw .n{font-family:var(--disp);font-size:13px;letter-spacing:.3em;color:var(--soft)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pair img{width:100%;aspect-ratio:3/4;object-fit:cover}
+@media (max-width:820px){.rw{grid-template-columns:1fr;gap:20px}.rw.rev .im{order:0}.rows{gap:48px}}
+</style></head><body>
+<header class="bar"><div class="wrap"><a class="back" id="back" href="../"><span>←</span>Back to XENNI</a><span class="brand">XENNI<small>齐间</small></span></div></header>
+
+<section class="hero"><div class="wrap">
+ <div>
+  <div class="lbl">Opening Gathering · 06.11.2026</div>
+  <div class="date">BOYA HOTEL · PEKING UNIVERSITY</div>
+  <h1 style="letter-spacing:.02em;font-family:var(--disp);font-weight:400">The Art of Flowers</h1>
+  <div class="en" style="font-family:var(--body);font-style:normal;font-size:22px;letter-spacing:.4em">一枝一缕</div>
+  <p>Guqin, Lin-school floral art, velvet flowers and Fuding white tea: the first cultural gathering held alongside the long-term exhibition at the Boya Hotel, with the flower as its single thread.</p>
+  <p class="zh">XENNI × Jenny · 北京大学博雅酒店长期展览首场配套文化雅集：广陵琴派古琴 × 林派花道 × 绒花 × 福鼎白茶。</p>
+ </div>
+ <div class="pic"><img src="../assets/y_botanical.jpg" alt="Botanical drawing"></div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+ <div class="three"><div><div class="n">一 枝</div><h3>One Sprig<small>一枝</small></h3><p class="en3">A single stem in floral art reveals space and Eastern aesthetics; a single plum branch in a painting is how the ancients looked at flowers.</p><p>一枝花材见空间与东方审美；画中一枝梅，是古人对花的凝视。</p></div><div><div class="n">一 缕</div><h3>One Thread<small>一缕</small></h3><p class="en3">A velvet flower is a thread of silk for flesh and a copper wire for bone. Every guest made a velvet-flower brooch to take home.</p><p>绒花以蚕丝为肉、铜丝为骨。每位嘉宾都亲手完成了一枚胸针。</p></div><div><div class="n">一 会</div><h3>One Gathering<small>一会</small></h3><p class="en3">The first of a monthly series held during the exhibition, each around a different craft and season.</p><p>展览期间配套雅集的第一场，此后每月一会。</p></div></div>
+</div></section>
+
+<section class="sec band"><div class="wrap">
+ <div class="head"><div class="lbl">The Afternoon · 12:30 – 14:00</div><h2>Order of the Day<span>当日流程</span></h2></div>
+ <div class="tl">
+  <div class="r"><div class="k">12:00</div><div><h4>Arrival<small>嘉宾到场</small></h4><p>Sign-in and seating</p></div></div>
+  <div class="r"><div class="k">12:30</div><div><h4>Opening remarks<small>开幕致辞</small></h4><p>Words from our guests</p></div></div>
+  <div class="r"><div class="k">12:35</div><div><h4>Guangling-school guqin<small>广陵琴派古琴</small></h4><p>Performed and introduced by Lu Yixing</p></div></div>
+  <div class="r"><div class="k">12:50</div><div><h4>Lin-school floral art<small>林派花道</small></h4><p>Arrangement and talk by Han Danning</p></div></div>
+  <div class="r"><div class="k">13:10</div><div><h4>Velvet-flower workshop<small>绒花 Workshop</small></h4><p>About 40 minutes; each guest finishes a brooch</p></div></div>
+  <div class="r"><div class="k">13:50</div><div><h4>Tea and group photo<small>茶叙 · 合影</small></h4><p>Fuding white tea by Mei Xiangjing</p></div></div>
+ </div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+ <div class="head"><div class="lbl">First Seat · Guqin</div><h2>A Thread of Sound<span>第一席 · 一缕琴音</span></h2></div>
+ <div class="split">
+  <div><img src="../assets/y_meihua.jpg" alt="Plum blossom painting, detail"><div class="cap">Plum blossoms, detail · 梅花图（局部）</div></div>
+  <div class="prose">
+   <h3 class="h3x">The Guangling School<small>广陵琴派</small></h3>
+   <p class="en">One of the major schools of the guqin, centred on Yangzhou. It matured with Xu Changyu’s <i>Chengjiantang Qinpu</i> in the late Ming and early Qing; the Guangling Qin Society was founded in 1932; and in 2008 it was added to China’s national heritage list.</p>
+   <p class="zh">古琴重要流派，流传于扬州一带；2008 年列入国家级非遗（古琴艺术扩展项目）。当日曲目《阳关三叠》。</p>
+   <p class="en" style="font-size:17px;color:var(--soft)">The piece that afternoon: <i>Three Refrains at Yangguan</i>.</p>
+   <div class="people" style="margin-top:24px">
+    <div class="person"><img src="../assets/p_lu.jpg" alt="Lu Yixing"><div><b>Lu Yixing<small>陆一行</small></b><span>XENNI Heritage Youth · Guqin<br>齐间非遗青年 · 演奏与介绍</span></div></div><div class="person"><img src="../assets/p_liuyang.jpg" alt="Liu Yang"><div><b>Liu Yang<small>刘扬</small></b><span>Teacher · 12th generation, Guangling school<br>广陵琴派第十二代 · 江苏省级非遗传承人</span></div></div>
+   </div>
+  </div>
+ </div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+ <div class="head"><div class="lbl">Second Seat · Floral Art</div><h2>One Stem, One Space<span>第二席 · 一枝花事</span></h2></div>
+ <div class="split">
+  <div class="prose">
+   <h3 class="h3x">The Lin School<small>林派花道</small></h3>
+   <p class="en">Chinese floral art with a lineage you can trace. Han Danning arranged a vessel live, talking through the materials, the space and the aesthetics behind each choice.</p>
+   <p class="zh">有师承的中国花道。韩丹宁现场插花，讲解花材、空间与东方审美。</p>
+   <p class="en" style="font-size:17px;color:var(--soft)">This August, XENNI studied in Suzhou, and two members earned their first-level certificate. <a href="suzhou.html">Read the Suzhou notes →</a></p>
+   <div class="people" style="margin-top:24px">
+    <div class="person"><img src="../assets/p_han.jpg" alt="Han Danning"><div><b>Han Danning<small>韩丹宁</small></b><span>XENNI Heritage Youth<br>Lin-school floral art · 林派花道传承人</span></div></div><div class="person"><img src="../assets/p_linxz.jpg" alt="Lin Xiaozhen"><div><b>Lin Xiaozhen<small>林晓真</small></b><span>Founder of the Lin School<br>林派花道创始人</span></div></div><div class="person"><img src="../assets/p_zhang.jpg" alt="Zhang Yanya"><div><b>Zhang Yanya<small>张艳亚</small></b><span>Head of the Suzhou branch<br>林派花道苏州负责人</span></div></div>
+   </div>
+  </div>
+  <div><img src="../assets/y_hualan.jpg" alt="Flower Basket, Li Song, Song dynasty"><div class="cap">Li Song, <i>Flower Basket</i>, Song · 宋 · 李嵩《花篮图》</div></div>
+ </div>
+</div></section>
+
+<section class="sec band"><div class="wrap">
+ <div class="head"><div class="lbl">Third Seat · Ronghua</div><h2>A Thread of Silk<span>第三席 · 一缕丝绒</span></h2></div>
+ <div class="split">
+  <div><img src="../assets/y_dongliu.jpg" alt="Velvet-flower work"><div class="cap">Velvet-flower work · 绒花作品</div></div>
+  <div class="prose">
+   <h3 class="h3x">What is Ronghua<small>何为绒花</small></h3>
+   <p class="en">Lifelike flowers of boiled mulberry silk on annealed copper wire, made by hand. <i>Rong</i> sounds like 荣, glory, so they carry a wish for good fortune.</p>
+   <p class="zh">以熟桑蚕丝为绒面、退火铜丝为骨架；“绒”谐音“荣”，寓意荣华吉祥。</p>
+   <p class="en" style="font-size:17px;color:var(--soft)">Palace flowers under the Tang; everyone wore flowers in the Song; flower markets in Nanjing, Yangzhou and Beijing in the Ming and Qing; Jiangsu provincial heritage since 2006.</p>
+   <div class="people" style="margin-top:24px">
+    <div class="person"><img src="../assets/p_li.jpg" alt="Li Shujun"><div><b>Li Shujun<small>李淑君</small></b><span>Certified heritage lecturer<br>绒花历史与手作 · 认证非遗文化讲师</span></div></div>
+   </div>
+  </div>
+ </div>
+ <div style="margin-top:56px"><div class="three"><div><img src="../assets/c1.jpg" alt="勾条"><div class="n">01</div><h3>Twisting<small>勾条</small></h3><p class="en3">Wire grips combed silk and is twisted into a velvet strip.</p><p>铜丝夹住丝绒，捻成绒条。</p></div><div><img src="../assets/c2.jpg" alt="打尖"><div class="n">02</div><h3>Trimming<small>打尖</small></h3><p class="en3">Fine scissors cut petal and leaf shapes.</p><p>小剪修出瓣形与叶形。</p></div><div><img src="../assets/c3.jpg" alt="传花"><div class="n">03</div><h3>Assembling<small>传花</small></h3><p class="en3">Built layer by layer and bound with copper.</p><p>逐层组合，铜丝绑扎。</p></div></div></div>
+ <h3 class="h3x" style="margin:64px 0 0;text-align:center">The Brooch: Butterfly &amp; Flower<small>蝶恋花胸针</small></h3>
+ <p style="text-align:center;margin:8px 0 0;font-family:var(--disp);font-size:17px">Petals and wings were made in advance; guests assembled, joined and wrapped their own.</p>
+ <p style="text-align:center;margin:2px 0 0;font-size:13.5px;color:var(--soft)">花瓣与蝶翅提前制好，嘉宾完成组合、合枝与缠线。</p>
+ <div class="six">
+  <figure><img src="../assets/b1.jpg" alt="Materials"><figcaption><b>1 Materials</b>备料</figcaption></figure>
+  <figure><img src="../assets/b2.jpg" alt="Flower"><figcaption><b>2 The flower</b>组花</figcaption></figure>
+  <figure><img src="../assets/b3.jpg" alt="Butterfly"><figcaption><b>3 The butterfly</b>做蝶</figcaption></figure>
+  <figure><img src="../assets/b4.jpg" alt="Joining"><figcaption><b>4 Joining</b>合枝</figcaption></figure>
+  <figure><img src="../assets/b5.jpg" alt="Wrapping"><figcaption><b>5 Wrapping</b>缠线</figcaption></figure>
+  <figure><img src="../assets/b6.jpg" alt="Finished"><figcaption><b>6 Finished</b>完成</figcaption></figure>
+ </div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+ <div class="head" style="margin-top:0;padding-top:88px"><div class="lbl">Fourth Seat · Tea</div><h2>A Cup of White Tea<span>第四席 · 一盏白茶</span></h2></div>
+ <div class="split">
+  <div class="prose">
+   <p class="en">The tea was Fuding white tea made by Mei Xiangjing, born in 1941 in Bailiu village, Fuding, and grandson of the late-Qing tea master Mei Bozhen. He has made white tea for more than half a century: “seventy percent sun, thirty percent fire.”</p>
+   <p class="zh">茶叙用茶为梅相靖爷爷的福鼎白茶。“七分晒，三分焙”；福鼎白茶制作技艺为国家级非遗项目。</p>
+   <div class="people" style="margin-top:24px">
+    <div class="person"><img src="../assets/p_mei.jpg" alt="Mei Xiangjing"><div><b>Mei Xiangjing<small>梅相靖</small></b><span>Inheritor, Fuding white tea craft<br>福鼎白茶手工制作技艺传承人</span></div></div><div class="person"><img src="../assets/p_liu.jpg" alt="Liu Yuyang"><div><b>Liu Yuyang<small>柳雨杨</small></b><span>XENNI Heritage Youth · Tea and hosting<br>齐间非遗青年 · 司茶与接待</span></div></div>
+   </div>
+  </div>
+  <div><img src="../assets/y_lihua.jpg" alt="Pear blossom painting, detail"><div class="cap">Pear blossoms, detail · 梨花图（局部）</div></div>
+ </div>
+</div></section>
+
+<section class="sec band"><div class="wrap">
+ <div class="split">
+  <div><img src="../assets/y_team.jpg" alt="The XENNI team"></div>
+  <div class="prose">
+   <div class="lbl" style="color:var(--soft)">About XENNI</div>
+   <h2 style="margin:8px 0 16px;font-family:var(--disp);font-weight:400;font-size:34px;color:var(--line);line-height:1.2">United by Art · Fulfilled through People</h2>
+   <p class="en">XENNI uses heritage as a way to connect young people in China and abroad. From Beijing to New York, our gatherings, workshops and study trips bring traditional craft into contemporary life. The guqin, floral art and velvet flowers that afternoon all came from our members’ own study under their teachers.</p>
+   <p class="zh">齐于艺，成于人。这一席的古琴、花道与绒花，都来自团队成员真实的学习与师承。</p>
+   <div class="stats"><div><b>10+</b>countries at one table</div><div><b>5</b>themed gatherings</div><div><b>1</b>co-curated show in New York</div></div>
+  </div>
+ </div>
+</div></section>
+
+<section class="sec"><div class="wrap narrow">
+ <div class="lbl" style="color:var(--soft);margin-bottom:14px;font-size:12px">References · 主要参考</div>
+ <ol class="refs">
+  <li>马缟《中华古今注》“五色通草苏朵子” · chinatoday.com.cn</li>
+  <li>江苏省地方志《扬州绒花》 · jssdfz.jiangsu.gov.cn</li>
+  <li>《明神宗显皇帝实录》“银柄绒花”、《红楼梦》宫花考证 · thepaper.cn</li>
+  <li>《清史稿·后妃传》、《清稗类钞》 · visitbeijing.com.cn</li>
+  <li>清代南北花市、绒花行业史料 · baike.baidu.com</li>
+  <li>南京绒花工艺与传承人记录 · news.cnr.cn</li>
+  <li>央视网：绒花民俗相关报道 · news.cctv.com</li>
+  <li>中国工艺美术学会：宋代簪花相关记录 · cnacs.net.cn</li>
+  <li>广陵琴派：ihchina.cn；福鼎白茶：dayamall.com</li>
+  <li>李淑君老师《蝶恋花 · 非遗绒花手作》课件</li>
+ </ol>
+</div></section>
+<footer><div class="wrap"><div class="m">United by Art · Fulfilled through People　齐于艺 成于人</div>© 2026 XENNI 齐间 · 未经授权请勿转载或改编</div></footer>
+<script>document.getElementById('back').addEventListener('click',function(e){if(history.length>1&&document.referrer){e.preventDefault();history.back();}});</script>
+</body></html>
